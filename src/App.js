@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./components/Header/Header";
+import styles from './App.module.scss'
+import SimpleBottomNavigation from "./components/BottomNav/BottomNav";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {Container} from "@mui/material";
+import PCGames from "./Pages/PCGames/PCGames";
+import BrowserGames from "./Pages/BrowserGames/BrowserGames";
+import Favorite from "./Pages/Favorite/Favorite";
+import AllGames from "./Pages/AllGames/AllGames";
+import Popular from "./Pages/Popular/Popular";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Header/>
+      <div className={styles.app}>
+        <Container>
+          <Switch>
+            <Route path='/' component={AllGames} exact />
+            <Route path='/Popular' component={Popular} />
+            <Route path='/PCGames' component={PCGames} />
+            <Route path='/BrowserGames' component={BrowserGames} />
+            <Route path='/Favorite' component={Favorite} />
+          </Switch>
+        </Container>
+      </div>
+      <SimpleBottomNavigation/>
+    </BrowserRouter>
   );
 }
 

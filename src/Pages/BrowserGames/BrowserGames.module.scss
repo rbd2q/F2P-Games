@@ -1,0 +1,15 @@
+.pageTitle {
+  text-transform: uppercase;
+  display: flex;
+  justify-content: center;
+  font-size: 35px;
+  padding: 4px;
+  border-radius: 50px;
+  color: rgb(25, 27, 31);
+}
+
+.gamesWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
