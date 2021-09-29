@@ -21,6 +21,7 @@ const PCGames = () => {
   return (
     <div>
       <span className={styles.pageTitle}>PC Games</span>
+      <div className={styles.navBar}></div>
       <div className={styles.gamesWrapper}>
         {content && content.map((c) =>
           <SingleContent

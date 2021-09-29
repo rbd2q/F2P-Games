@@ -4,13 +4,14 @@
 
 body {
   margin: 0;
+  height: 100%;
   font-family: 'Montserrat', sans-serif;
 }
 
 .app {
   background-color: #E6DABB;
   min-height: 100vh;
-  min-width: 100vw;
+  min-width: 100vh;
   padding-top: 100px;
   padding-bottom: 70px;
   color: black;

@@ -2,15 +2,16 @@ import React, {useEffect, useState} from 'react';
 import styles from './AllGames.module.scss';
 import axios from "axios";
 import SingleContent from "../../components/SingleContent/SingleContent";
-/*import CustomPagination from "../../components/CustomPagination/CustomPagination";*/ //TODO
+import GenresMenu from "../../components/GenresMenu/GenresMenu";
+import {useParams} from "react-router-dom";
 
 
 const AllGames = () => {
-  /*const [page, setPage] = useState(1)*/ //TODO
   const [content, setContent] = useState([]);
+  const { genre } = useParams();
 
   const allGamesFetch = async () => {
-    const {data} = await axios.get(`/api/games`);
+    const {data} = await axios.get(`/api/games${genre ? `?category=${genre}` : ''}`);
 
 
     console.log(data);
@@ -19,11 +20,12 @@ const AllGames = () => {
 
   useEffect(() => {
     allGamesFetch()
-  }, [])
+  }, [genre])
 
   return (
     <div>
       <span className={styles.pageTitle}>All Games</span>
+      <div className={styles.navBar}><GenresMenu/></div>
       <div className={styles.gamesWrapper}>
         {content && content.map((c) =>
               <SingleContent
@@ -37,7 +39,6 @@ const AllGames = () => {
               />
           )}
       </div>
-      {/*<CustomPagination setPage={setPage}/>*/} //TODO
     </div>
   );
 };

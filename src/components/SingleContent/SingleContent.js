@@ -2,6 +2,7 @@ import React from 'react';
 import {unavailable} from "../../config/config";
 import styles from './SingleContent.module.scss'
 import {Badge} from "@material-ui/core";
+import {useHistory} from "react-router-dom";
 
 
 const SingleContent = (
@@ -14,8 +15,15 @@ const SingleContent = (
     release_date
   }
 ) => {
+
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push(`/game/detail/id=${id}`)
+  }
+
   return (
-    <div className={styles.gameBlock}>
+    <div className={styles.gameBlock} onClick={handleClick}>
       <Badge
         badgeContent={platform === 'PC (Windows)' ? 'PC' : 'Web'}
         color={platform === 'PC (Windows)' ? 'primary' : 'secondary'}

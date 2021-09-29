@@ -7,7 +7,7 @@ const Popular = () => {
 
   const [content, setContent] = useState([]);
 
-  const PopularGamesFetch = async () => {
+  const popularGamesFetch = async () => {
     const {data} = await axios.get(`/api/games?sort-by=popularity`);
 
 
@@ -16,12 +16,13 @@ const Popular = () => {
   };
 
   useEffect(() => {
-    PopularGamesFetch()
+    popularGamesFetch()
   }, [])
 
   return (
     <div>
       <span className={styles.pageTitle}>Popular</span>
+      <div className={styles.navBar}></div>
       <div className={styles.gamesWrapper}>
         {content && content.map((c, index) =>
           index <= 49 ?

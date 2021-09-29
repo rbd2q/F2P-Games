@@ -7,7 +7,7 @@ const BrowserGames = () => {
 
   const [content, setContent] = useState([]);
 
-  const BrowserGamesFetch = async () => {
+  const browserGamesFetch = async () => {
     const {data} = await axios.get(`/api/games?platform=browser`);
 
 
@@ -16,12 +16,13 @@ const BrowserGames = () => {
   };
 
   useEffect(() => {
-    BrowserGamesFetch()
+    browserGamesFetch()
   }, [])
 
   return (
     <div>
       <span className={styles.pageTitle}>Browser Games</span>
+      <div className={styles.navBar}></div>
       <div className={styles.gamesWrapper}>
         {content && content.map((c) =>
           <SingleContent
