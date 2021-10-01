@@ -1,33 +1,39 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import styles from './AllGames.module.scss';
 import axios from "axios";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import GenresMenu from "../../components/GenresMenu/GenresMenu";
 import {useParams} from "react-router-dom";
+import SortingMenu from "../../components/SortingMenu/SortingMenu";
+import {useQueryParams} from "../../hooks/useQueryParams";
+import {RingLoader} from "react-spinners";
 
 
 const AllGames = () => {
   const [content, setContent] = useState([]);
+  const [loading, setLoading] = useState(false);
   const { genre } = useParams();
+  const { sort } = useParams();
 
   const allGamesFetch = async () => {
-    const {data} = await axios.get(`/api/games${genre ? `?category=${genre}` : ''}`);
+    const {data} = await axios.get(`/api/games?${genre ? `category=${genre}` : ''}${sort ? `&sort-by=${sort}` : ''}`);
 
 
     console.log(data);
     setContent(data)
+    setLoading(true);
   };
 
   useEffect(() => {
     allGamesFetch()
-  }, [genre])
+  }, [genre, sort])
 
   return (
     <div>
       <span className={styles.pageTitle}>All Games</span>
-      <div className={styles.navBar}><GenresMenu/></div>
+      <div className={styles.navBar}><GenresMenu/> <SortingMenu/></div>
       <div className={styles.gamesWrapper}>
-        {content && content.map((c) =>
+        {!loading ? <RingLoader size={200} speedMultiplier={3} /> : content.map((c) =>
               <SingleContent
                 key={c.id}
                 id={c.id}

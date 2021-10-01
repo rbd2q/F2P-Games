@@ -19,6 +19,7 @@ function App() {
           <Switch>
             <Route path='/' component={AllGames} exact />
             <Route path='/games/:genre' component={AllGames} exact />
+            <Route path='/games/sorting/:sort' component={AllGames} exact />
             <Route path='/Popular' component={Popular} />
             <Route path='/PCGames' component={PCGames} />
             <Route path='/BrowserGames' component={BrowserGames} />

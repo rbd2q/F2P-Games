@@ -3,7 +3,6 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import {useHistory} from "react-router-dom";
-import {useState} from "react";
 
 export default function GenresMenu({}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -16,10 +15,9 @@ export default function GenresMenu({}) {
     history.push(`/games/${genre}`)
   };
 
-  const handleAllGenre = (event) => {
+  const handleAllGenre = () => {
     history.push(`/`)
   };
-
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);

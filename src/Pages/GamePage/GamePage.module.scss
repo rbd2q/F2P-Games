@@ -1,3 +1,9 @@
+.pageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .gameWrapper {
   display: flex;
   flex-direction: column;
@@ -11,6 +17,15 @@
   width: 100%;
 }
 
+.gameTextInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.gameTextInfo span {
+  margin-bottom: 10px;
+}
+
 .gameTitle {
   font-size: 6vh;
   padding-bottom: 30px;
@@ -21,3 +36,25 @@
   width: 50%;
   margin-right: 40px;
 }
+
+.screenshotsList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: row;
+  margin-bottom: 40px;
+}
+
+.screenshot {
+  width: 40%;
+  height: 50%;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 15px;
+}
+
+.bttn-gradient {
+  width: 350px;
+  text-decoration: none!important;
+}
+

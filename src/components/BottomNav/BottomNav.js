@@ -17,10 +17,10 @@ export default function SimpleBottomNavigation() {
 
   useEffect(() => {
     if (value === 0) history.push('/')
-    else if (value === 1) history.push('Popular')
-    else if (value === 2) history.push('PCGames')
-    else if (value === 3) history.push('BrowserGames')
-    else if (value === 4) history.push('Favorite')
+    else if (value === 1) history.push('/Popular')
+    else if (value === 2) history.push('/PCGames')
+    else if (value === 3) history.push('/BrowserGames')
+    else if (value === 4) history.push('/Favorite')
   }, [value, history])
 
   return (

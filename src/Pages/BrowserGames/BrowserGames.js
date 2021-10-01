@@ -2,10 +2,12 @@ import React, {useEffect, useState} from 'react';
 import styles from './BrowserGames.module.scss';
 import axios from "axios";
 import SingleContent from "../../components/SingleContent/SingleContent";
+import {RingLoader} from "react-spinners";
 
 const BrowserGames = () => {
 
   const [content, setContent] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const browserGamesFetch = async () => {
     const {data} = await axios.get(`/api/games?platform=browser`);
@@ -13,6 +15,7 @@ const BrowserGames = () => {
 
     console.log(data);
     setContent(data)
+    setLoading(true);
   };
 
   useEffect(() => {
@@ -24,7 +27,7 @@ const BrowserGames = () => {
       <span className={styles.pageTitle}>Browser Games</span>
       <div className={styles.navBar}></div>
       <div className={styles.gamesWrapper}>
-        {content && content.map((c) =>
+        {!loading ? <RingLoader size={200} speedMultiplier={3} /> : content.map((c) =>
           <SingleContent
             key={c.id}
             id={c.id}
