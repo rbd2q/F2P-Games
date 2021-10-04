@@ -1,15 +1,20 @@
 import React, {useEffect, useState} from 'react';
 import styles from './GamePage.module.scss'
-import {useHistory, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import axios from "axios";
 import {unavailable} from "../../config/config";
 import {RingLoader} from "react-spinners";
+import ScreenshotModal from "./ScreenshotModal";
+import {css} from "@emotion/react";
 
 const GamePage = () => {
   const [content, setContent] = useState([]);
   const [loading, setLoading] = useState(false);
   const {id} = useParams();
-  const history = useHistory();
+
+  const override = css`
+  margin-top: 100px;
+`;
 
   const gamePageFetch = async () => {
     const {data} = await axios.get(`/api/game?id=${id}`);
@@ -20,17 +25,13 @@ const GamePage = () => {
     setLoading(true);
   };
 
-  const handleDownload = () => {
-
-  }
-
   useEffect(() => {
     gamePageFetch();
   }, [id])
 
   return (
     <div className={styles.pageWrapper}>
-      {!loading ? (<RingLoader size={200} speedMultiplier={3}/>) : (
+      {!loading ? (<RingLoader size={200} speedMultiplier={3} css={override}/>) : (
         <div className={styles.gameWrapper}>
           <span className={styles.gameTitle}>{content.title}</span>
           <div className={styles.gameMainInfo}>
@@ -86,10 +87,7 @@ const GamePage = () => {
           <h4>Screenshots</h4>
           <div className={styles.screenshotsList}>
             {content.screenshots.map((s) =>
-              <img
-                src={s.image} className={styles.screenshot}
-                alt={`There should be a screenshot, but this API sucks :(`}
-              />
+              <ScreenshotModal  s={s} key={s.id}/>
             )}
           </div>
           <form action={content.game_url}>

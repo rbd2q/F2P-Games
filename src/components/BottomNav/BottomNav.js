@@ -16,27 +16,33 @@ export default function SimpleBottomNavigation() {
   const history = useHistory();
 
   useEffect(() => {
-    if (value === 0) history.push('/')
-    else if (value === 1) history.push('/Popular')
-    else if (value === 2) history.push('/PCGames')
-    else if (value === 3) history.push('/BrowserGames')
-    else if (value === 4) history.push('/Favorite')
+    if (value === 0) {
+      history.push('/')
+    }
+    else if (value === 1) {
+      history.push('/Popular')
+      window.scroll(0, 0)
+    }
+    else if (value === 2) {history.push('/PCGames'); window.scroll(0,0)}
+    else if (value === 3) {history.push('/BrowserGames'); window.scroll(0, 0)}
+    else if (value === 4) {history.push('/Favorite'); window.scroll(0, 0)}
   }, [value, history])
 
   return (
-    <Box className={styles.navMenu}>
+    <Box>
       <BottomNavigation
         showLabels
         value={value}
+        className={styles.navMenu}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
       >
-        <BottomNavigationAction label="All Games" icon={<Gamepad />} />
-        <BottomNavigationAction label="Popular" icon={<WhatshotIcon />} />
-        <BottomNavigationAction label="PC Games" icon={<DesktopWindowsIcon />} />
-        <BottomNavigationAction label="Browser Games" icon={<WebAssetIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
+        <BottomNavigationAction label="All Games" icon={<Gamepad />} className={styles.navMenuItem}/>
+        <BottomNavigationAction label="Popular" icon={<WhatshotIcon />} className={styles.navMenuItem}/>
+        <BottomNavigationAction label="PC Games" icon={<DesktopWindowsIcon />} className={styles.navMenuItem}/>
+        <BottomNavigationAction label="Browser Games" icon={<WebAssetIcon />} className={styles.navMenuItem}/>
+        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} className={styles.navMenuItem}/>
       </BottomNavigation>
     </Box>
   );

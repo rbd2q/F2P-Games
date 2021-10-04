@@ -19,6 +19,7 @@ const SingleContent = (
   const history = useHistory();
 
   const handleClick = () => {
+    window.scroll(0, 0)
     history.push(`/game/detail/id=${id}`)
   }
 

@@ -3,11 +3,15 @@ import styles from './BrowserGames.module.scss';
 import axios from "axios";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import {RingLoader} from "react-spinners";
+import {css} from "@emotion/react";
 
 const BrowserGames = () => {
-
   const [content, setContent] = useState([]);
   const [loading, setLoading] = useState(false);
+
+  const override = css`
+  margin-top: 100px;
+`;
 
   const browserGamesFetch = async () => {
     const {data} = await axios.get(`/api/games?platform=browser`);
@@ -27,7 +31,7 @@ const BrowserGames = () => {
       <span className={styles.pageTitle}>Browser Games</span>
       <div className={styles.navBar}></div>
       <div className={styles.gamesWrapper}>
-        {!loading ? <RingLoader size={200} speedMultiplier={3} /> : content.map((c) =>
+        {!loading ? <RingLoader size={200} speedMultiplier={3} css={override}/> : content.map((c) =>
           <SingleContent
             key={c.id}
             id={c.id}

@@ -1,12 +1,13 @@
-import React, {useEffect, useMemo, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './AllGames.module.scss';
 import axios from "axios";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import GenresMenu from "../../components/GenresMenu/GenresMenu";
 import {useParams} from "react-router-dom";
 import SortingMenu from "../../components/SortingMenu/SortingMenu";
-import {useQueryParams} from "../../hooks/useQueryParams";
+
 import {RingLoader} from "react-spinners";
+import { css } from "@emotion/react";
 
 
 const AllGames = () => {
@@ -15,9 +16,12 @@ const AllGames = () => {
   const { genre } = useParams();
   const { sort } = useParams();
 
+  const override = css`
+  margin-top: 100px;
+`;
+
   const allGamesFetch = async () => {
     const {data} = await axios.get(`/api/games?${genre ? `category=${genre}` : ''}${sort ? `&sort-by=${sort}` : ''}`);
-
 
     console.log(data);
     setContent(data)
@@ -33,7 +37,7 @@ const AllGames = () => {
       <span className={styles.pageTitle}>All Games</span>
       <div className={styles.navBar}><GenresMenu/> <SortingMenu/></div>
       <div className={styles.gamesWrapper}>
-        {!loading ? <RingLoader size={200} speedMultiplier={3} /> : content.map((c) =>
+        {!loading ? <RingLoader size={200} speedMultiplier={3} css={override}/> : content.map((c) =>
               <SingleContent
                 key={c.id}
                 id={c.id}
