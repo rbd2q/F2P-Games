@@ -6,11 +6,39 @@ import {unavailable} from "../../config/config";
 import {RingLoader} from "react-spinners";
 import ScreenshotModal from "./ScreenshotModal";
 import {css} from "@emotion/react";
+import {useDispatch, useSelector} from "react-redux";
+import {removeGameFromFavorite, setGameToFavorite} from "../../store/actions";
+import IconFavorite from './img/Like.svg'
+import IconFavoriteFill from './img/Like-fill.svg'
 
 const GamePage = () => {
   const [content, setContent] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [gameFavorite, setGameFavorite] = useState(false);
   const {id} = useParams();
+  const dispatch = useDispatch();
+
+  const storeData = useSelector(state => state.favoriteReducer);
+  console.log('storeData', storeData[content.id]);
+
+  const dispatchFavoriteGames = () => {
+    if (gameFavorite) {
+      dispatch(removeGameFromFavorite(content.id));
+      setGameFavorite(false);
+    } else {
+      dispatch(setGameToFavorite({
+        [content.id]: {
+          id: content.id,
+          title: content.title,
+          thumbnail: content.thumbnail,
+          genre: content.genre,
+          platform: content.platform,
+          release_date: content.release_date,
+        }
+      }));
+      setGameFavorite(true);
+    }
+  }
 
   const override = css`
   margin-top: 100px;
@@ -27,6 +55,7 @@ const GamePage = () => {
 
   useEffect(() => {
     gamePageFetch();
+    storeData[content.id] ? setGameFavorite(true) : setGameFavorite(false); //TODO Состояние добавлен в избранное
   }, [id])
 
   return (
@@ -39,6 +68,12 @@ const GamePage = () => {
               src={content.thumbnail ? content.thumbnail : unavailable}
               alt={content.title}
               className={styles.gamePoster}
+            />
+            <img
+              src={gameFavorite ? IconFavoriteFill : IconFavorite}
+              onClick={dispatchFavoriteGames}
+              alt="Add tp Favorite"
+              className={styles.favorite}
             />
             <div className={styles.gameTextInfo}>
               <span>

@@ -29,7 +29,6 @@ const BrowserGames = () => {
   return (
     <div>
       <span className={styles.pageTitle}>Browser Games</span>
-      <div className={styles.navBar}></div>
       <div className={styles.gamesWrapper}>
         {!loading ? <RingLoader size={200} speedMultiplier={3} css={override}/> : content.map((c) =>
           <SingleContent

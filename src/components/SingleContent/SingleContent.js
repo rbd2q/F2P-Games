@@ -26,7 +26,7 @@ const SingleContent = (
   return (
     <div className={styles.gameBlock} onClick={handleClick}>
       <Badge
-        badgeContent={platform === 'PC (Windows)' ? 'PC' : 'Web'}
+        badgeContent={platform === 'PC (Windows)' ? 'PC' : 'Web'} //TODO
         color={platform === 'PC (Windows)' ? 'primary' : 'secondary'}
       />
       <img className={styles.thumbnail} src={thumbnail ? thumbnail : unavailable}  alt={title}/>
