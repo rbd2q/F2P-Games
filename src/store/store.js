@@ -11,6 +11,7 @@ const store = createStore(
 
 store.subscribe(() => {
   setLocalStorage('store', store.getState().favoriteReducer)
+  setLocalStorage('storeComment', store.getState().commentsReducer)
 })
 
 export default store;
