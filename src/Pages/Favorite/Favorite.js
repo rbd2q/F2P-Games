@@ -5,7 +5,6 @@ import SingleContent from "../../components/SingleContent/SingleContent";
 
 const Favorite = () => {
   const [games, setGames] = useState([]);
-
   const storeData = useSelector(state => state.favoriteReducer)
 
   useEffect(() => {

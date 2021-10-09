@@ -1,0 +1,13 @@
+.commentForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.addCommentInput {
+  width: 450px!important;
+}
+
+.sendCommentBtn {
+  width: 200px;
+  margin: 8px!important;
+}

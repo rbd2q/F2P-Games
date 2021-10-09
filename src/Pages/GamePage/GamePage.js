@@ -10,6 +10,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {removeGameFromFavorite, setGameToFavorite} from "../../store/actions";
 import IconFavorite from './img/Like.svg'
 import IconFavoriteFill from './img/Like-fill.svg'
+import CommentsList from "../../components/CommentsList/CommentsList";
 
 const GamePage = () => {
   const [content, setContent] = useState([]);
@@ -19,6 +20,7 @@ const GamePage = () => {
   const dispatch = useDispatch();
 
   const storeData = useSelector(state => state.favoriteReducer);
+  console.log(`contentID ${content.id}`)
   console.log('storeData', storeData[content.id]);
 
   const dispatchFavoriteGames = () => {
@@ -128,6 +130,7 @@ const GamePage = () => {
           <form action={content.game_url}>
             <button className="bttn-gradient bttn-lg bttn-success">DOWNLOAD</button>
           </form>
+          <CommentsList currentUserId='1' id={id}/>
         </div>
       )}
     </div>
