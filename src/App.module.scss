@@ -11,7 +11,7 @@ body {
 .app {
   background-color: #D7DAE8;
   min-height: 100vh;
-  min-width: 100vh;
+  //min-width: 100vh;
   padding-top: 100px;
   padding-bottom: 70px;
   color: black;
@@ -26,3 +26,10 @@ body {
   border-radius: 50px;
   color: rgb(25, 27, 31);
 }
+
+@media (max-width:500px) {
+  .app {
+    padding-top: 60px;
+  }
+  }
+

@@ -3,7 +3,6 @@ import {useDispatch, useSelector} from "react-redux";
 import {deleteComment} from "../../../store/actions";
 import PersonIcon from '@mui/icons-material/Person';
 import styles from './Comment.module.scss'
-import Button from "@mui/material/Button";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 const Comment = ({username, comment, id}) => {

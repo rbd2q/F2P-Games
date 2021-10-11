@@ -21,6 +21,7 @@ const CommentsList = (id) => {
       setComments(res)
     }
   }, [])
+  console.log(comments)
 
   return (
     <div className={styles.commentsWrapper}>

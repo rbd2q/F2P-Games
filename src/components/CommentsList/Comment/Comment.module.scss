@@ -1,5 +1,6 @@
 .commentWrapper {
   display: flex;
+  width: 80%;
   background-color: #ebecf6;
   align-items: center;
   border: 1px solid black;
@@ -36,6 +37,10 @@
   color: #f6904c;
 }
 
+.comment {
+  word-break: break-word;
+}
+
 .deleteBtn {
   position: absolute;
   top: 10px;
@@ -47,4 +52,17 @@
   cursor: pointer;
   width: 35px;
   height: 35px;
+}
+
+@media (max-width:500px) {
+  .commentWrapper {
+    width: 90%;
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .profilePic {
+    width: 25px;
+    height: 25px;
+  }
 }

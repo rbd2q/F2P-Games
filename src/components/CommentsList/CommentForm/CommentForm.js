@@ -4,7 +4,7 @@ import TextField from '@mui/material/TextField';
 import styles from './CommentForm.module.scss'
 import Button from "@mui/material/Button";
 import {useRef} from "react";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {addComments} from "../../../store/actions";
 
 export default function CommentForm(id) {
@@ -14,7 +14,7 @@ export default function CommentForm(id) {
   const commentRef = useRef(null);
   const submitRef = useRef(null);
   const dispatch = useDispatch();
-  const commentID = Math.round(Math.random()*1000);
+  const commentID = Math.round(Math.random()*1000); //TODO
 
   const dispatchFavoriteGames = () => {
     const finalComment = `${username} : ${commentText}`;
@@ -66,6 +66,7 @@ export default function CommentForm(id) {
     >
       <div className={styles.commentForm}>
         <TextField
+          className={styles.addUsernameInput}
           id="filled-multiline-flexible"
           label="Username"
           multiline

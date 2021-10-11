@@ -8,8 +8,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-width: 100vh;
+  //min-width: 100vh;
   min-height: 100vh;
+  padding: 0 10px;
 }
 
 .favorite {
@@ -90,6 +91,13 @@
   font-size: 14px!important;
 }
 
+@media (max-width:900px) {
+  .modalBlock {
+    width: 850px!important;
+    height: 500px!important;
+  }
+}
+
 @media (max-width:800px) {
   .gameMainInfo {
     flex-wrap: wrap!important;
@@ -99,6 +107,7 @@
 
   .gamePoster {
     width: 80%;
+    margin-right: 0;
     margin-bottom: 15px;
   }
 
@@ -106,5 +115,43 @@
     width: 80%;
     padding-left: 50px;
   }
+
+  .modalBlock {
+    width: 800px!important;
+    height: 400px!important;
+  }
 }
 
+@media (max-width:500px) {
+  .gameMainInfo {
+    width: 90%;
+    font-size: 15px;
+  }
+
+  .favorite {
+    width: 25px;
+    height: 25px;
+  }
+
+  .gameDescription {
+    width: 90%;
+    font-size: 13px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width:400px) {
+  .screenshotButton {
+    width: 250px;
+    height: 150px;
+  }
+
+  .gameTextInfo {
+    width: 100%;
+    padding-left: 20px;
+  }
+
+  .gameTextInfo span {
+    margin-bottom: 5px;
+  }
+}

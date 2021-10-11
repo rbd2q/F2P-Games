@@ -23,11 +23,31 @@ const SingleContent = (
     history.push(`/game/detail/id=${id}`)
   }
 
+  //Пришлось наговнокодить из-за разных данных приходящих с сервера //TODO
+  const checkBudgeContent = () => {
+    if (platform === 'PC (Windows)') {
+      return 'PC'
+    } else if (platform === "Web Browser") {
+      return 'Web'
+    }
+    return 'PC'
+  }
+  const checkBudgeColor = () => {
+    if (platform === 'PC (Windows)') {
+      return 'primary'
+    } else if (platform === "Web Browser") {
+      return 'secondary'
+    }
+    return 'primary'
+  }
+
   return (
     <div className={styles.gameBlock} onClick={handleClick}>
       <Badge
-        badgeContent={platform === 'PC (Windows)' ? 'PC' : 'Web'} //TODO
-        color={platform === 'PC (Windows)' ? 'primary' : 'secondary'}
+        badgeContent={checkBudgeContent()}
+        color={checkBudgeColor()}
+        //badgeContent={platform === 'PC (Windows)' ? 'PC' : 'Web'} //TODO
+        //color={platform === 'PC (Windows)' ? 'primary' : 'secondary'}
       />
       <img className={styles.thumbnail} src={thumbnail ? thumbnail : unavailable}  alt={title}/>
       <b className={styles.title}>{title}</b>

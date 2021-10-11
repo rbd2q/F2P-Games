@@ -14,3 +14,41 @@
   width: 100%;
   box-shadow: 0px 15px 18px -5px rgba(34, 60, 80, 0.69);
 }
+
+.homeButton {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+}
+
+.homeButton:hover {
+  transition: all .3s ease;
+  top: 15px;
+  left: 15px;
+  width: 40px;
+  height: 40px;
+}
+
+@media (max-width:500px) {
+  .header {
+    font-size: 18px;
+    padding: 15px;
+  }
+
+  .homeButton {
+    top: 15px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .homeButton:hover {
+    top: 15px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
+  }
+}

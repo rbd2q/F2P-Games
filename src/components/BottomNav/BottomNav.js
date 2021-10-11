@@ -16,13 +16,8 @@ export default function SimpleBottomNavigation() {
   const history = useHistory();
 
   useEffect(() => {
-    if (value === 0) {
-      history.push('/')
-    }
-    else if (value === 1) {
-      history.push('/Popular')
-      window.scroll(0, 0)
-    }
+    if (value === 0) {history.push('/')}
+    else if (value === 1) {history.push('/Popular');window.scroll(0, 0)}
     else if (value === 2) {history.push('/PCGames'); window.scroll(0,0)}
     else if (value === 3) {history.push('/BrowserGames'); window.scroll(0, 0)}
     else if (value === 4) {history.push('/Favorite'); window.scroll(0, 0)}

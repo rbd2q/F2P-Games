@@ -117,7 +117,7 @@ const GamePage = () => {
               </span>
             </div>
           </div>
-          <div>
+          <div className={styles.gameDescription}>
             <h2>Game description</h2>
             <p>{content.description}</p>
           </div>
