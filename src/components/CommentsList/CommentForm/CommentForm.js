@@ -7,14 +7,15 @@ import {useRef} from "react";
 import {useDispatch} from "react-redux";
 import {addComments} from "../../../store/actions";
 
-export default function CommentForm(id) {
+export default function CommentForm(props) {
+  const {id} = props;
   const [comment, setComment] = React.useState([]);
   const [username, setUsername] = React.useState('');
   const [commentText, setCommentText] = React.useState(``);
   const commentRef = useRef(null);
   const submitRef = useRef(null);
   const dispatch = useDispatch();
-  const commentID = Math.round(Math.random()*1000); //TODO
+
 
   const dispatchFavoriteGames = () => {
     const finalComment = `${username} : ${commentText}`;
@@ -22,12 +23,10 @@ export default function CommentForm(id) {
     setComment(finalComment);
 
     dispatch(addComments({
-      [commentID]: {
-        username: username,
-        comment: commentText,
-      }
-      }, id
-    ));
+      username: username,
+      comment: commentText,
+      gameID: id,
+    }));
     setUsername('');
     setCommentText('');
   }

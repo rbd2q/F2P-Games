@@ -1,19 +1,15 @@
 import {ADD_COMMENTS, DELETE_COMMENT} from "../constants/actionTypes";
-import {omit} from "lodash";
 import {getLocalStorage} from "../../utils/localStorage";
 
-//const initialState = [];
 const initialState = getLocalStorage('storeComment');
 
 const commentsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_COMMENTS:
-      return {
-        ...state,
-        ...action.payload
-      }
+      const newCommentID = state.length > 0 ? state[state.length - 1].id + 1 : 1;
+      return [...state, {...action.payload, id: newCommentID}]
     case DELETE_COMMENT:
-      return omit(state, [action.payload])
+      return state.filter((comment) => comment.id !== action.payload)
     default:
       return state;
   }

@@ -3,25 +3,12 @@ import CommentForm from "./CommentForm/CommentForm";
 import styles from './CommentsList.module.scss'
 import Comment from "./Comment/Comment";
 import {useSelector} from "react-redux";
+import {commentForGame} from "../../store/selectors";
 
-const CommentsList = (id) => {
-  const [comments, setComments] = useState([]);
-  const storeDataComment = useSelector(state => state.commentsReducer);
-
-  useEffect(() => {
-    const arr = Object.entries(storeDataComment);
-
-    if (arr.length) {
-      const res = arr.map(item => {
-        return {
-          id: item[0],
-          ...item[1],
-        }
-      })
-      setComments(res)
-    }
-  }, [])
-  console.log(comments)
+const CommentsList = ({id}) => {
+  const comments = useSelector(state => {
+    return commentForGame(state, id);
+  });
 
   return (
     <div className={styles.commentsWrapper}>

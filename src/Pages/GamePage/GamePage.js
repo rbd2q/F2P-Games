@@ -11,11 +11,12 @@ import {removeGameFromFavorite, setGameToFavorite} from "../../store/actions";
 import IconFavorite from './img/Like.svg'
 import IconFavoriteFill from './img/Like-fill.svg'
 import CommentsList from "../../components/CommentsList/CommentsList";
+import {isGameInFavoritesSelector} from "../../store/selectors";
 
 const GamePage = () => {
   const [content, setContent] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [gameFavorite, setGameFavorite] = useState(false);
+  const gameFavorite = useSelector((state) => content ? isGameInFavoritesSelector(state, content.id) : false )
   const {id} = useParams();
   const dispatch = useDispatch();
 
@@ -26,7 +27,6 @@ const GamePage = () => {
   const dispatchFavoriteGames = () => {
     if (gameFavorite) {
       dispatch(removeGameFromFavorite(content.id));
-      setGameFavorite(false);
     } else {
       dispatch(setGameToFavorite({
         [content.id]: {
@@ -38,7 +38,6 @@ const GamePage = () => {
           release_date: content.release_date,
         }
       }));
-      setGameFavorite(true);
     }
   }
 
@@ -57,7 +56,6 @@ const GamePage = () => {
 
   useEffect(() => {
     gamePageFetch();
-    storeData[content.id] ? setGameFavorite(true) : setGameFavorite(false); //TODO Состояние добавлен в избранное
   }, [id])
 
   return (
@@ -130,7 +128,7 @@ const GamePage = () => {
           <form action={content.game_url}>
             <button className="bttn-gradient bttn-lg bttn-success">DOWNLOAD</button>
           </form>
-          <CommentsList currentUserId='1' id={id}/>
+          <CommentsList currentUserId='1' id={content.id}/>
         </div>
       )}
     </div>
