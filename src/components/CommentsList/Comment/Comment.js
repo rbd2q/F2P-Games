@@ -7,7 +7,6 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 const Comment = ({username, comment, id}) => {
   const dispatch = useDispatch();
-  const storeData = useSelector(state => state.commentsReducer);
 
   const handleDelete = () => {
     dispatch(deleteComment(id));

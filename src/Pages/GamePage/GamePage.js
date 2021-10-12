@@ -20,23 +20,17 @@ const GamePage = () => {
   const {id} = useParams();
   const dispatch = useDispatch();
 
-  const storeData = useSelector(state => state.favoriteReducer);
-  console.log(`contentID ${content.id}`)
-  console.log('storeData', storeData[content.id]);
-
   const dispatchFavoriteGames = () => {
     if (gameFavorite) {
       dispatch(removeGameFromFavorite(content.id));
     } else {
       dispatch(setGameToFavorite({
-        [content.id]: {
           id: content.id,
           title: content.title,
           thumbnail: content.thumbnail,
           genre: content.genre,
           platform: content.platform,
           release_date: content.release_date,
-        }
       }));
     }
   }

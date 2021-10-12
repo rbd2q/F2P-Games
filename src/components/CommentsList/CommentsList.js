@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import CommentForm from "./CommentForm/CommentForm";
 import styles from './CommentsList.module.scss'
 import Comment from "./Comment/Comment";

@@ -1,27 +1,10 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from './Favorite.module.scss';
 import {useSelector} from "react-redux";
 import SingleContent from "../../components/SingleContent/SingleContent";
 
 const Favorite = () => {
-  const [games, setGames] = useState([]);
-  const storeData = useSelector(state => state.favoriteReducer)
-
-  useEffect(() => {
-    const arr = Object.entries(storeData);
-
-    if (arr.length) {
-      const res = arr.map(item => {
-        return {
-          id: item[0],
-          ...item[1],
-        }
-      })
-
-      console.log('res', res)
-      setGames(res)
-    }
-  }, [])
+  const games = useSelector(state => state.favoriteReducer)
 
   return (
     <div>
@@ -32,7 +15,7 @@ const Favorite = () => {
             key={g.id}
             id={g.id}
             title={g.title}
-            platform={g.platform} //TODO
+            platform={g.platform}
             genre={g.genre}
             thumbnail={g.thumbnail}
             release_date={g.release_date}

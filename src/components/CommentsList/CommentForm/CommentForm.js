@@ -9,19 +9,13 @@ import {addComments} from "../../../store/actions";
 
 export default function CommentForm(props) {
   const {id} = props;
-  const [comment, setComment] = React.useState([]);
   const [username, setUsername] = React.useState('');
   const [commentText, setCommentText] = React.useState(``);
   const commentRef = useRef(null);
   const submitRef = useRef(null);
   const dispatch = useDispatch();
 
-
   const dispatchFavoriteGames = () => {
-    const finalComment = `${username} : ${commentText}`;
-    console.log(`final comment: ${finalComment}`);
-    setComment(finalComment);
-
     dispatch(addComments({
       username: username,
       comment: commentText,
@@ -50,8 +44,6 @@ export default function CommentForm(props) {
   const handleChangeComment = (event) => {
     setCommentText(event.target.value);
   };
-
-  console.log(username, commentText);
 
   return (
     <Box
