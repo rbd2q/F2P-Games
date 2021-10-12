@@ -17,19 +17,35 @@
 
 .homeButton {
   position: absolute;
-  top: 20px;
+  top: 25px;
   left: 20px;
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
   cursor: pointer;
+}
+.homeButton:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffee10;
+  transition: .5s;
+  transform: scale(.9);
+  z-index: -1;
+}
+
+.homeButton:hover::before {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px #ffee10;
 }
 
 .homeButton:hover {
-  transition: all .3s ease;
-  top: 15px;
-  left: 15px;
-  width: 40px;
-  height: 40px;
+  color: #ffee10;
+  box-shadow: 0 0 5px #ffee10;
+  text-shadow: 0 0 5px #ffee10;
 }
 
 @media (max-width:500px) {
@@ -43,12 +59,5 @@
     left: 10px;
     width: 25px;
     height: 25px;
-  }
-
-  .homeButton:hover {
-    top: 15px;
-    left: 10px;
-    width: 30px;
-    height: 30px;
   }
 }
