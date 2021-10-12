@@ -33,6 +33,7 @@ export default function GenresMenu({}) {
         aria-controls="basic-menu"
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
+        color={'warning'}
         onClick={handleClick}
       >
         Genres

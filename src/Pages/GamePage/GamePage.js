@@ -54,7 +54,7 @@ const GamePage = () => {
 
   return (
     <div className={styles.pageWrapper}>
-      {!loading ? (<RingLoader size={200} speedMultiplier={3} css={override}/>) : (
+      {!loading ? (<RingLoader size={200} speedMultiplier={3} css={override} color={'white'}/>) : (
         <div className={styles.gameWrapper}>
           <span className={styles.gameTitle}>{content.title}</span>
           <div className={styles.gameMainInfo}>

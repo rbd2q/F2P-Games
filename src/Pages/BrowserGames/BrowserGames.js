@@ -30,7 +30,7 @@ const BrowserGames = () => {
     <div>
       <span className={styles.pageTitle}>Browser Games</span>
       <div className={styles.gamesWrapper}>
-        {!loading ? <RingLoader size={200} speedMultiplier={3} css={override}/> : content.map((c) =>
+        {!loading ? <RingLoader size={200} speedMultiplier={3} css={override} color={'white'}/> : content.map((c) =>
           <SingleContent
             key={c.id}
             id={c.id}

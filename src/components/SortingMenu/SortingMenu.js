@@ -31,6 +31,7 @@ export default function SortingMenu() {
         aria-controls="basic-menu"
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
+        color={'warning'}
         onClick={handleClick}
       >
         Sort by <KeyboardArrowDownIcon/>

@@ -10,7 +10,7 @@ const PCGames = () => {
   const [loading, setLoading] = useState(false);
 
   const override = css`
-  margin-top: 100px;
+    margin-top: 100px;
 `;
 
   const PCGamesFetch = async () => {
@@ -31,7 +31,7 @@ const PCGames = () => {
       <span className={styles.pageTitle}>PC Games</span>
       <div className={styles.navBar}></div>
       <div className={styles.gamesWrapper}>
-        {!loading ? <RingLoader size={200} speedMultiplier={3} css={override}/> : content.map((c) =>
+        {!loading ? <RingLoader size={200} speedMultiplier={3} css={override} color={'white'}/> : content.map((c) =>
           <SingleContent
             key={c.id}
             id={c.id}
