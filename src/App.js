@@ -9,6 +9,7 @@ import Favorite from "./Pages/Favorite/Favorite";
 import AllGames from "./Pages/AllGames/AllGames";
 import Popular from "./Pages/Popular/Popular";
 import GamePage from "./Pages/GamePage/GamePage";
+import NotFound from "./Pages/NotFound/NotFound";
 
 function App() {
   return (
@@ -18,13 +19,12 @@ function App() {
         <Container>
           <Switch>
             <Route path='/' component={AllGames} exact />
-            <Route path='/games/:genre' component={AllGames} exact />
-            <Route path='/games/sorting/:sort' component={AllGames} exact />
             <Route path='/Popular' component={Popular} />
             <Route path='/PCGames' component={PCGames} />
             <Route path='/BrowserGames' component={BrowserGames} />
             <Route path='/Favorite' component={Favorite} />
             <Route path='/game/detail/:id' component={GamePage} />
+            <Route path='/notFound' component={NotFound} />
           </Switch>
         </Container>
       </div>

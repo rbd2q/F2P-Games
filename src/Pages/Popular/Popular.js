@@ -4,17 +4,19 @@ import axios from "axios";
 import SingleContent from "../../components/SingleContent/SingleContent";
 import { RingLoader} from "react-spinners";
 import {css} from "@emotion/react";
+import GenresMenu from "../../components/GenresMenu/GenresMenu";
 
 const Popular = () => {
   const [content, setContent] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [genre, setGenre] = useState('');
 
   const override = css`
   margin-top: 100px;
 `;
 
   const popularGamesFetch = async () => {
-    const {data} = await axios.get(`/api/games?sort-by=popularity`);
+    const {data} = await axios.get(`/api/games?sort-by=popularity${genre ? `&category=${genre}` : ''}`);
 
 
     console.log(data);
@@ -23,15 +25,17 @@ const Popular = () => {
   };
 
   useEffect(() => {
-    popularGamesFetch()
-  }, [])
+    let cleanupFunction = false;
+    popularGamesFetch();
+    return () => cleanupFunction = true;
+  }, [genre])
 
   return (
     <div>
       <span className={styles.pageTitle}>Popular</span>
-      <div className={styles.navBar}></div>
+      <div className={styles.navBar}><GenresMenu setGenre={setGenre}/></div>
       <div className={styles.gamesWrapper}>
-        {!loading ? <RingLoader size={200} speedMultiplier={3} css={override} color={'white'}/> : content.map((c, index) =>
+        {!loading ? <RingLoader size={200} speedMultiplier={3} css={override}/> : content.map((c, index) =>
           index <= 49 ?
             <SingleContent
               key={c.id}
