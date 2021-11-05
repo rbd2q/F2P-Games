@@ -2,21 +2,18 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import {useHistory} from "react-router-dom";
 
-export default function GenresMenu({}) {
+export default function GenresMenu({setGenre}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const history = useHistory();
 
   const handleGenre = (event) => {
-    let genre = (event.target.getAttribute('data-genre'))
-
-    history.push(`/games/${genre}`)
+    let genre = (event.target.getAttribute('data-genre'));
+    setGenre(genre);
   };
 
   const handleAllGenre = () => {
-    history.push(`/`)
+    setGenre('');
   };
 
   const handleClick = (event) => {

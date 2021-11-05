@@ -3,12 +3,10 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import {useHistory} from "react-router-dom";
 
-export default function SortingMenu() {
+export default function SortingMenu({setSort}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const history = useHistory();
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -19,9 +17,8 @@ export default function SortingMenu() {
   };
 
   const handleSort = (event) => {
-    let sort = (event.target.getAttribute('data-sort'))
-
-    history.push(`/games/sorting/${sort}`)
+    let sort = (event.target.getAttribute('data-sort'));
+    setSort(sort);
   };
 
   return (
