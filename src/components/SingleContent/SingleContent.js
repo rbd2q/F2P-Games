@@ -18,12 +18,12 @@ const SingleContent = (
 
   const history = useHistory();
 
+
   const handleClick = () => {
     window.scroll(0, 0)
     history.push(`/game/detail/id=${id}`)
   }
 
-  //Пришлось наговнокодить из-за разных данных приходящих с сервера //TODO
   const checkBudgeContent = () => {
     if (platform === 'PC (Windows)') {
       return 'PC'
@@ -46,8 +46,6 @@ const SingleContent = (
       <Badge
         badgeContent={checkBudgeContent()}
         color={checkBudgeColor()}
-        //badgeContent={platform === 'PC (Windows)' ? 'PC' : 'Web'} //TODO
-        //color={platform === 'PC (Windows)' ? 'primary' : 'secondary'}
       />
       <img className={styles.thumbnail} src={thumbnail ? thumbnail : unavailable}  alt={title}/>
       <b className={styles.title}>{title}</b>

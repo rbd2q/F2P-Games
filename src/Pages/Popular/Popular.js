@@ -17,23 +17,18 @@ const Popular = () => {
 
   const popularGamesFetch = async () => {
     const {data} = await axios.get(`/api/games?sort-by=popularity${genre ? `&category=${genre}` : ''}`);
-
-
-    console.log(data);
     setContent(data)
     setLoading(true);
   };
 
   useEffect(() => {
-    let cleanupFunction = false;
     popularGamesFetch();
-    return () => cleanupFunction = true;
   }, [genre])
 
   return (
     <div>
       <span className={styles.pageTitle}>Popular</span>
-      <div className={styles.navBar}><GenresMenu setGenre={setGenre}/></div>
+      <div className={styles.navBar}><GenresMenu setGenre={setGenre} genre={genre}/></div>
       <div className={styles.gamesWrapper}>
         {!loading ? <RingLoader size={200} speedMultiplier={3} css={override}/> : content.map((c, index) =>
           index <= 49 ?

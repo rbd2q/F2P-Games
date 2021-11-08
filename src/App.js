@@ -18,7 +18,7 @@ function App() {
       <div className={styles.app}>
         <Container>
           <Switch>
-            <Route path='/' component={AllGames} exact />
+            <Route path='/AllGames' component={AllGames} exact />
             <Route path='/Popular' component={Popular} />
             <Route path='/PCGames' component={PCGames} />
             <Route path='/BrowserGames' component={BrowserGames} />

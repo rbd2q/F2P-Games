@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import styles from './Favorite.module.scss';
 import {useSelector} from "react-redux";
 import SingleContent from "../../components/SingleContent/SingleContent";

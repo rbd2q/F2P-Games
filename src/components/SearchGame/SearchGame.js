@@ -20,9 +20,9 @@ export default function SearchGame() {
     allGameFetch();
   }, [])
 
-  const handleKeyDown = (e) => {
+  const handleKeyDown = async (e) => {
     if (e.key === 'Enter') {
-      const searchGame = allGames.find(game => game.title === e.target.value)
+      const searchGame = await allGames.find(game => game.title === e.target.value)
       searchGame ? history.push(`/game/detail/${searchGame.id}`) : history.push('/notFound');
       e.target.value = '';
     }
@@ -32,7 +32,7 @@ export default function SearchGame() {
     <Stack spacing={2} className={styles.inputWrapper}>
       <Autocomplete
         id="free-solo-2-demo"
-        disableClearable
+        //disableClearable
         noOptionsText={'There is no such game :('}
         onKeyDown={handleKeyDown}
         options={allGames.map((game) => game.title)}

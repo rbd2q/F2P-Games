@@ -16,8 +16,8 @@ export default function SimpleBottomNavigation() {
   const history = useHistory();
 
   useEffect(() => {
-    if (value === 0) {history.push('/')}
-    else if (value === 1) {history.push('/Popular');window.scroll(0, 0)}
+    if (value === 0) {history.push('/Popular'); window.scroll(0, 0)}
+    else if (value === 1) {history.push('/AllGames'); window.scroll(0, 0)}
     else if (value === 2) {history.push('/PCGames'); window.scroll(0,0)}
     else if (value === 3) {history.push('/BrowserGames'); window.scroll(0, 0)}
     else if (value === 4) {history.push('/Favorite'); window.scroll(0, 0)}
@@ -28,16 +28,32 @@ export default function SimpleBottomNavigation() {
       <BottomNavigation
         showLabels
         value={value}
+        defaultValue={0}
         className={styles.navMenu}
         onChange={(event, newValue) => {
           setValue(newValue);
         }}
       >
-        <BottomNavigationAction label="All Games" icon={<Gamepad />} className={styles.navMenuItem}/>
-        <BottomNavigationAction label="Popular" icon={<WhatshotIcon />} className={styles.navMenuItem}/>
-        <BottomNavigationAction label="PC Games" icon={<DesktopWindowsIcon />} className={styles.navMenuItem}/>
-        <BottomNavigationAction label="Browser Games" icon={<WebAssetIcon />} className={styles.navMenuItem}/>
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} className={styles.navMenuItem}/>
+        <BottomNavigationAction
+          label="Popular"
+          icon={<WhatshotIcon />}
+          className={value === 0? styles.navMenuItemSelected : styles.navMenuItem}/>
+        <BottomNavigationAction
+          label="All Games"
+          icon={<Gamepad />}
+          className={value === 1? styles.navMenuItemSelected : styles.navMenuItem}/>
+        <BottomNavigationAction
+          label="PC Games"
+          icon={<DesktopWindowsIcon />}
+          className={value === 2? styles.navMenuItemSelected : styles.navMenuItem}/>
+        <BottomNavigationAction
+          label="Browser Games"
+          icon={<WebAssetIcon />}
+          className={value === 3? styles.navMenuItemSelected : styles.navMenuItem}/>
+        <BottomNavigationAction
+          label="Favorites"
+          icon={<FavoriteIcon />}
+          className={value === 4? styles.navMenuItemSelected : styles.navMenuItem}/>
       </BottomNavigation>
     </Box>
   );

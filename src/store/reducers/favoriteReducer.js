@@ -1,5 +1,4 @@
 import {ADD_GAME_TO_FAVORITE, REMOVE_GAME_FROM_FAVORITE} from "../constants/actionTypes";
-import {omit} from "lodash";
 import {getLocalStorage} from "../../utils/localStorage";
 
 const initialState = getLocalStorage('store');

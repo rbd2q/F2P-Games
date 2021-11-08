@@ -11,7 +11,10 @@ export default function BasicPagination({currentPage,setCurrentPage, numberOfGam
         page={currentPage}
         count={numberOfPages}
         color="primary"
-        onChange={(_, num) => setCurrentPage(num)}
+        onChange={(_, num) => {
+          setCurrentPage(num)
+          window.scroll(0,0)
+        }}
       />
     </Stack>
   );

@@ -18,6 +18,7 @@ const CommentsList = ({id}) => {
         <Comment key={c.id} username={c.username} comment={c.comment} id={c.id}/>
       )}
     </div>
+
   );
 };
 

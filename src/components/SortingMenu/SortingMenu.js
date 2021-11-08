@@ -4,7 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
-export default function SortingMenu({setSort}) {
+export default function SortingMenu({setSort, sort}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
@@ -30,13 +30,13 @@ export default function SortingMenu({setSort}) {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        Sort by <KeyboardArrowDownIcon/>
+        <b>Sort by</b> <KeyboardArrowDownIcon/> {sort}
       </Button>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        onClick={handleClose}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}

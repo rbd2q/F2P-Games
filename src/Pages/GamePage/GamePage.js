@@ -16,34 +16,31 @@ import {isGameInFavoritesSelector} from "../../store/selectors";
 const GamePage = () => {
   const [content, setContent] = useState([]);
   const [loading, setLoading] = useState(false);
-  const gameFavorite = useSelector((state) => content ? isGameInFavoritesSelector(state, content.id) : false )
+  const gameFavorite = useSelector((state) => content ? isGameInFavoritesSelector(state, content.id) : false)
   const {id} = useParams();
   const dispatch = useDispatch();
+
+  const override = css`
+    margin-top: 100px;
+  `;
 
   const dispatchFavoriteGames = () => {
     if (gameFavorite) {
       dispatch(removeGameFromFavorite(content.id));
     } else {
       dispatch(setGameToFavorite({
-          id: content.id,
-          title: content.title,
-          thumbnail: content.thumbnail,
-          genre: content.genre,
-          platform: content.platform,
-          release_date: content.release_date,
+        id: content.id,
+        title: content.title,
+        thumbnail: content.thumbnail,
+        genre: content.genre,
+        platform: content.platform,
+        release_date: content.release_date,
       }));
     }
   }
 
-  const override = css`
-  margin-top: 100px;
-`;
-
   const gamePageFetch = async () => {
     const {data} = await axios.get(`/api/game?id=${id}`);
-
-
-    console.log(data);
     setContent(data);
     setLoading(true);
   };
@@ -89,11 +86,11 @@ const GamePage = () => {
               <h4>Minimum System Requirements</h4>
               <span>
                 <b>OS: </b>
-                {content.minimum_system_requirements? content.minimum_system_requirements.os : 'Web Game'}
+                {content.minimum_system_requirements ? content.minimum_system_requirements.os : 'Web Game'}
               </span>
               <span>
                 <b>Processor: </b>
-                {content.minimum_system_requirements? content.minimum_system_requirements.processor : 'Web Game'}
+                {content.minimum_system_requirements ? content.minimum_system_requirements.processor : 'Web Game'}
               </span>
               <span>
                 <b>Graphics: </b>
@@ -101,11 +98,11 @@ const GamePage = () => {
               </span>
               <span>
                 <b>Storage: </b>
-                {content.minimum_system_requirements? content.minimum_system_requirements.storage : 'Web Game'}
+                {content.minimum_system_requirements ? content.minimum_system_requirements.storage : 'Web Game'}
               </span>
               <span>
                 <b>Memory: </b>
-                {content.minimum_system_requirements? content.minimum_system_requirements.memory : 'Web Game'}
+                {content.minimum_system_requirements ? content.minimum_system_requirements.memory : 'Web Game'}
               </span>
             </div>
           </div>
@@ -116,7 +113,7 @@ const GamePage = () => {
           <h4>Screenshots</h4>
           <div className={styles.screenshotsList}>
             {content.screenshots.map((s) =>
-              <ScreenshotModal  s={s} key={s.id}/>
+              <ScreenshotModal s={s} key={s.id}/>
             )}
           </div>
           <form action={content.game_url}>

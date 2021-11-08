@@ -7,7 +7,6 @@ import {css} from "@emotion/react";
 import GenresMenu from "../../components/GenresMenu/GenresMenu";
 import SortingMenu from "../../components/SortingMenu/SortingMenu";
 import BasicPagination from "../../components/Pagination/Pagination/Pagination";
-import PaginationButtons from "../../components/Pagination/PaginationButtons/PaginationButtons";
 
 const PCGames = () => {
   const [content, setContent] = useState([]);
@@ -39,14 +38,8 @@ const PCGames = () => {
     <div>
       <span className={styles.pageTitle}>PC Games</span>
       <div className={styles.navBar}>
-        <GenresMenu setGenre={setGenre}/>
-        <BasicPagination
-          setCurrentPage={setCurrentPage}
-          gamesPerPage={gamesPerPage}
-          numberOfGames={content.length}
-          currentPage={currentPage}
-        />
-        <SortingMenu setSort={setSort}/>
+        <GenresMenu setGenre={setGenre} genre={genre}/>
+        <SortingMenu setSort={setSort} sort={sort}/>
       </div>
       <div className={styles.gamesWrapper}>
         {!loading ? <RingLoader size={200} speedMultiplier={3} css={override}/> : currentGames.map((c) =>
@@ -61,13 +54,14 @@ const PCGames = () => {
           />
         )}
       </div>
-      {content.length > 0 &&
-      <PaginationButtons
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-        gamesPerPage={gamesPerPage}
-        numberOfGames={content.length}
-      />}
+      <div className={styles.paginationWrapper}>
+        <BasicPagination
+          setCurrentPage={setCurrentPage}
+          gamesPerPage={gamesPerPage}
+          numberOfGames={content.length}
+          currentPage={currentPage}
+        />
+      </div>
     </div>
   );
 };

@@ -2,13 +2,14 @@ import * as React from 'react';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 
-export default function GenresMenu({setGenre}) {
+export default function GenresMenu({setGenre, genre}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
   const handleGenre = (event) => {
-    let genre = (event.target.getAttribute('data-genre'));
+    genre = (event.target.getAttribute('data-genre'));
     setGenre(genre);
   };
 
@@ -32,13 +33,13 @@ export default function GenresMenu({setGenre}) {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        Genres
+        <b>Genres</b> <KeyboardArrowDownIcon/> {genre}
       </Button>
       <Menu
         id="basic-menu"
         anchorEl={anchorEl}
         open={open}
-        onClose={handleClose}
+        onClick={handleClose}
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}

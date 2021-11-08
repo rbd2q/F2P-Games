@@ -8,7 +8,7 @@ const Header = () => {
   const history = useHistory();
 
   const handleHomeClick = () => {
-    history.push('/');
+    history.push('/Popular');
   }
 
   return (

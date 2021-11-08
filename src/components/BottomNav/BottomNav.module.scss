@@ -16,7 +16,11 @@
   color: white!important;
 }
 
-.navMenuItem:focus {
+.navMenuItem:hover {
+  color: gold!important;
+}
+
+.navMenuItemSelected {
   color: #1976d2!important;
 }
 
