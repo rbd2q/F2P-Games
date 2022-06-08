@@ -1,12 +1,13 @@
-import React from 'react';
-import styles from './EmptyFavoriteSection.module.scss'
+import React from "react";
 
-const EmptyFavoriteSection = () => {
+import styles from "./EmptyFavoriteSection.module.scss";
+
+function EmptyFavoriteSection() {
   return (
     <div className={styles.wrapper}>
-      You haven't add any games to favorite yet :(
+      You have not add any games to favorite yet :(
     </div>
   );
-};
+}
 
 export default EmptyFavoriteSection;

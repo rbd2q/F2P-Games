@@ -1,40 +1,30 @@
-import * as React from 'react';
-import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
-import Autocomplete from '@mui/material/Autocomplete';
-import {useEffect, useState} from "react";
+import Autocomplete from "@mui/material/Autocomplete";
+import Stack from "@mui/material/Stack";
+import TextField from "@mui/material/TextField";
 import axios from "axios";
-import styles from './SearchGame.module.scss'
-import {useHistory} from "react-router-dom";
+import * as React from "react";
+import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
+
+import styles from "./SearchGame.module.scss";
 
 export default function SearchGame() {
   const [allGames, setAllGames] = useState([]);
-  const history = useHistory();
 
   const allGameFetch = async () => {
-    const {data} = await axios.get('/api/games');
+    const { data } = await axios.get("/api/games");
     setAllGames(data);
-  }
+  };
 
   useEffect(() => {
     allGameFetch();
-  }, [])
-
-  const handleKeyDown = async (e) => {
-    if (e.key === 'Enter') {
-      const searchGame = await allGames.find(game => game.title === e.target.value)
-      searchGame ? history.push(`/game/detail/${searchGame.id}`) : history.push('/notFound');
-      e.target.value = '';
-    }
-  }
+  }, []);
 
   return (
     <Stack spacing={2} className={styles.inputWrapper}>
       <Autocomplete
         id="free-solo-2-demo"
-        //disableClearable
-        noOptionsText={'There is no such game :('}
-        onKeyDown={handleKeyDown}
+        noOptionsText="There is no such game :("
         options={allGames.map((game) => game.title)}
         renderInput={(params) => (
           <TextField
@@ -43,7 +33,7 @@ export default function SearchGame() {
             label="Search Game"
             InputProps={{
               ...params.InputProps,
-              type: 'search',
+              type: "search",
               className: styles.searchInput,
             }}
           />

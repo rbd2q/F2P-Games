@@ -1,42 +1,46 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
-import styles from './CommentForm.module.scss'
+import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
-import {useRef} from "react";
-import {useDispatch} from "react-redux";
-import {addComments} from "../../../store/actions";
+import TextField from "@mui/material/TextField";
+import * as React from "react";
+import { useRef } from "react";
+import { useDispatch } from "react-redux";
+
+import { addComments } from "../../../store/actions";
+import styles from "./CommentForm.module.scss";
 
 export default function CommentForm(props) {
-  const {id} = props;
-  const [username, setUsername] = React.useState('');
-  const [commentText, setCommentText] = React.useState(``);
+  const { id } = props;
+
+  const [username, setUsername] = React.useState("");
+  const [commentText, setCommentText] = React.useState("");
   const commentRef = useRef(null);
   const submitRef = useRef(null);
   const dispatch = useDispatch();
 
   const dispatchFavoriteGames = () => {
-    dispatch(addComments({
-      username: username,
-      comment: commentText,
-      gameID: id,
-    }));
-    setUsername('');
-    setCommentText('');
-  }
+    dispatch(
+      addComments({
+        username,
+        comment: commentText,
+        gameID: id,
+      })
+    );
+    setUsername("");
+    setCommentText("");
+  };
 
   const handleChangeUsername = (event) => {
     setUsername(event.target.value);
   };
 
   const handleNameKeyDown = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       commentRef.current.focus();
     }
   };
 
   const handleCommentKeyDown = (event) => {
-    if (event.key === 'Enter') {
+    if (event.key === "Enter") {
       submitRef.current.focus();
     }
   };
@@ -49,11 +53,11 @@ export default function CommentForm(props) {
     <Box
       component="form"
       sx={{
-        '& .MuiTextField-root': { m: 1, width: '250px'},
+        "& .MuiTextField-root": { m: 1, width: "250px" },
       }}
       noValidate
       autoComplete="off"
-      fullWidth='true'
+      fullWidth="true"
     >
       <div className={styles.commentForm}>
         <TextField
