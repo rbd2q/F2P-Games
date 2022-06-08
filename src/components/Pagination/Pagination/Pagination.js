@@ -1,9 +1,14 @@
-import * as React from 'react';
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
+import * as React from "react";
 
-export default function BasicPagination({currentPage,setCurrentPage, numberOfGames, gamesPerPage}) {
-  const numberOfPages = Math.ceil(numberOfGames/gamesPerPage);
+export default function BasicPagination({
+  currentPage,
+  setCurrentPage,
+  numberOfGames,
+  gamesPerPage,
+}) {
+  const numberOfPages = Math.ceil(numberOfGames / gamesPerPage);
 
   return (
     <Stack spacing={2}>
@@ -12,8 +17,8 @@ export default function BasicPagination({currentPage,setCurrentPage, numberOfGam
         count={numberOfPages}
         color="primary"
         onChange={(_, num) => {
-          setCurrentPage(num)
-          window.scroll(0,0)
+          setCurrentPage(num);
+          window.scroll(0, 0);
         }}
       />
     </Stack>

@@ -1,20 +1,20 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import * as React from "react";
 
-export default function GenresMenu({setGenre, genre}) {
+export default function GenresMenu({ setGenre, genre }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
   const handleGenre = (event) => {
-    genre = (event.target.getAttribute('data-genre'));
+    genre = event.target.getAttribute("data-genre");
     setGenre(genre);
   };
 
   const handleAllGenre = () => {
-    setGenre('');
+    setGenre("");
   };
 
   const handleClick = (event) => {
@@ -30,10 +30,10 @@ export default function GenresMenu({setGenre, genre}) {
         id="basic-button"
         aria-controls="basic-menu"
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
+        aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <b>Genres</b> <KeyboardArrowDownIcon/> {genre}
+        <b>Genres</b> <KeyboardArrowDownIcon /> {genre}
       </Button>
       <Menu
         id="basic-menu"
@@ -41,17 +41,31 @@ export default function GenresMenu({setGenre, genre}) {
         open={open}
         onClick={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button',
+          "aria-labelledby": "basic-button",
         }}
-        disableScrollLock={true}
+        disableScrollLock
       >
-        <MenuItem onClick={handleAllGenre} data-genre={"all"}>All Genres</MenuItem>
-        <MenuItem onClick={handleGenre} data-genre={"mmorpg"}>MMORPG</MenuItem>
-        <MenuItem onClick={handleGenre} data-genre={"shooter"}>Shooter</MenuItem>
-        <MenuItem onClick={handleGenre} data-genre={"strategy"}>Strategy</MenuItem>
-        <MenuItem onClick={handleGenre} data-genre={"moba"}>MOBA</MenuItem>
-        <MenuItem onClick={handleGenre} data-genre={"racing"}>Racing</MenuItem>
-        <MenuItem onClick={handleGenre} data-genre={"sports"}>Sports</MenuItem>
+        <MenuItem onClick={handleAllGenre} data-genre="all">
+          All Genres
+        </MenuItem>
+        <MenuItem onClick={handleGenre} data-genre="mmorpg">
+          MMORPG
+        </MenuItem>
+        <MenuItem onClick={handleGenre} data-genre="shooter">
+          Shooter
+        </MenuItem>
+        <MenuItem onClick={handleGenre} data-genre="strategy">
+          Strategy
+        </MenuItem>
+        <MenuItem onClick={handleGenre} data-genre="moba">
+          MOBA
+        </MenuItem>
+        <MenuItem onClick={handleGenre} data-genre="racing">
+          Racing
+        </MenuItem>
+        <MenuItem onClick={handleGenre} data-genre="sports">
+          Sports
+        </MenuItem>
       </Menu>
     </div>
   );
