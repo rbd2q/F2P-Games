@@ -39,6 +39,13 @@ module.exports = {
     "import/order": "off",
     "import/prefer-default-export": "off",
     "import/extensions": "off",
+    "react/function-component-definition": [
+      2,
+      {
+        namedComponents: "arrow-function",
+        unnamedComponents: "arrow-function",
+      },
+    ],
     "max-len": [
       "warn",
       130,
