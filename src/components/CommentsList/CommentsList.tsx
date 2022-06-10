@@ -4,7 +4,7 @@ import { commentForGame } from "../../store/selectors";
 import { CommentType } from "../../types";
 import { Comment } from "./Comment/Comment";
 import { CommentForm } from "./CommentForm/CommentForm";
-import styles from "./CommentsList.module.scss";
+import styles from "./CommentsList.module.css";
 
 // TODO
 export const CommentsList = ({ id }) => {

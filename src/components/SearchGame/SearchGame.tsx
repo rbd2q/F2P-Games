@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import { useMemo } from "react";
 
 import { useFetchAllGames } from "../../Pages/AllGames/model";
-import styles from "./SearchGame.module.scss";
+import styles from "./SearchGame.module.css";
 
 // TODO
 export const SearchGame = () => {

@@ -2,7 +2,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import { useHistory } from "react-router-dom";
 
 import { SearchGame } from "../SearchGame/SearchGame";
-import styles from "./Header.module.scss";
+import styles from "./Header.module.css";
 
 export const Header = () => {
   const history = useHistory();

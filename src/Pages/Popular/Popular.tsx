@@ -5,7 +5,7 @@ import { RingLoader } from "react-spinners";
 import { GenresMenu } from "../../components/GenresMenu/GenresMenu";
 import { SingleContent } from "../../components/SingleContent/SingleContent";
 import { useFetchPopularGames } from "./model";
-import styles from "./Popular.module.scss";
+import styles from "./Popular.module.css";
 
 // TODO
 export const Popular = () => {

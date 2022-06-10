@@ -7,7 +7,7 @@ import { BasicPagination } from "../../components/Pagination/Pagination/Paginati
 import { SingleContent } from "../../components/SingleContent/SingleContent";
 import { SortingMenu } from "../../components/SortingMenu/SortingMenu";
 import { useFetchPCGames } from "./model";
-import styles from "./PCGames.module.scss";
+import styles from "./PCGames.module.css";
 
 export const PCGames = () => {
   const [currentPage, setCurrentPage] = useState(1);

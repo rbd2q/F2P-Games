@@ -2,7 +2,7 @@ import { Badge } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 
 import { unavailable } from "../../config/config";
-import styles from "./SingleContent.module.scss";
+import styles from "./SingleContent.module.css";
 
 // TODO
 export const SingleContent = ({

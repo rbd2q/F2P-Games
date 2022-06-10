@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import { SxProps } from "@mui/system";
 import * as React from "react";
 
-import styles from "./GamePage.module.scss";
+import styles from "./GamePage.module.css";
 
 const style: SxProps = {
   position: "absolute",

@@ -1,4 +1,4 @@
-import styles from "./EmptyFavoriteSection.module.scss";
+import styles from "./EmptyFavoriteSection.module.css";
 
 export const EmptyFavoriteSection = () => (
   <div className={styles.wrapper}>

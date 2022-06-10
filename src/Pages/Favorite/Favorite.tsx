@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 
 import { EmptyFavoriteSection } from "../../components/EmptyFavoriteSection/EmptyFavoriteSection";
 import { SingleContent } from "../../components/SingleContent/SingleContent";
-import styles from "./Favorite.module.scss";
+import styles from "./Favorite.module.css";
 
 // TODO
 export const Favorite = () => {

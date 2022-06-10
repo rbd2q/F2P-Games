@@ -1,9 +1,11 @@
+import "./index.css";
+
 import { Container } from "@mui/material";
 import { useRef } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
-import styles from "./App.module.scss";
+import styles from "./App.module.css";
 import { SimpleBottomNavigation } from "./components/BottomNav/BottomNav";
 import { Header } from "./components/Header/Header";
 import { AllGames } from "./Pages/AllGames/AllGames";

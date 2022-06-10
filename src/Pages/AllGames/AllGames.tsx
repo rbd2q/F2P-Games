@@ -6,7 +6,7 @@ import { GenresMenu } from "../../components/GenresMenu/GenresMenu";
 import { BasicPagination } from "../../components/Pagination/Pagination/Pagination";
 import { SingleContent } from "../../components/SingleContent/SingleContent";
 import { SortingMenu } from "../../components/SortingMenu/SortingMenu";
-import styles from "./AllGames.module.scss";
+import styles from "./AllGames.module.css";
 import { useFetchAllGames } from "./model";
 
 export const AllGames = () => {

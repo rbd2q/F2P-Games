@@ -9,7 +9,7 @@ import { unavailable } from "../../config/config";
 import { removeGameFromFavorite, setGameToFavorite } from "../../store/actions";
 import { isGameInFavoritesSelector } from "../../store/selectors";
 import { GameApiResponse } from "../../types";
-import styles from "./GamePage.module.scss";
+import styles from "./GamePage.module.css";
 import IconFavorite from "./img/Like.svg";
 import IconFavoriteFill from "./img/Like-fill.svg";
 import { useFetchGame } from "./model";
