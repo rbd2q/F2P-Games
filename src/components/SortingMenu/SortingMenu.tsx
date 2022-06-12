@@ -30,7 +30,11 @@ export const SortingMenu = ({ setSort, sort }) => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <b>Sort by</b> <KeyboardArrowDownIcon /> {sort}
+        <div className="text-[#191b1f]">
+          <span className="font-bold">Sort by</span>
+          <KeyboardArrowDownIcon />
+          {sort}
+        </div>
       </Button>
       <Menu
         id="basic-menu"

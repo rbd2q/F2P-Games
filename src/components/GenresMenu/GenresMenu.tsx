@@ -33,7 +33,11 @@ export const GenresMenu = ({ setGenre, genre }) => {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <b>Genres</b> <KeyboardArrowDownIcon /> {genre}
+        <div className="text-[#191b1f]">
+          <span className="font-bold">Genres</span>
+          <KeyboardArrowDownIcon />
+          {genre}
+        </div>
       </Button>
       <Menu
         id="basic-menu"
@@ -44,6 +48,7 @@ export const GenresMenu = ({ setGenre, genre }) => {
           "aria-labelledby": "basic-button",
         }}
         disableScrollLock
+        className="text-black"
       >
         <MenuItem onClick={handleAllGenre} data-genre="all">
           All Genres
