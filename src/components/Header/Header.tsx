@@ -13,7 +13,9 @@ export const Header = () => {
 
   return (
     <div className={styles.header}>
-      <HomeIcon className={styles.homeButton} onClick={handleHomeClick} />
+      <button onClick={handleHomeClick} className="absolute left-8">
+        <HomeIcon className={styles.homeButton} />
+      </button>
       <p>Free-to-play Games</p>
       <SearchGame />
     </div>
