@@ -6,7 +6,7 @@ import styles from "./Favorite.module.css";
 
 // TODO
 export const Favorite = () => {
-  const games = useSelector((state: any) => state.favoriteReducer);
+  const games = useSelector((state: any) => state.favoriteSlice);
 
   return (
     <div>
@@ -15,7 +15,7 @@ export const Favorite = () => {
         {games.length === 0 ? (
           <EmptyFavoriteSection />
         ) : (
-          games.map((g) => (
+          games?.map((g) => (
             <SingleContent
               key={g.id}
               id={g.id}

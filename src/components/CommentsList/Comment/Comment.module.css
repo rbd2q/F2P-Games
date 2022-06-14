@@ -47,13 +47,6 @@
   right: 10px;
 }
 
-.deleteBtn:hover {
-  transition: all 1s ease;
-  cursor: pointer;
-  width: 35px;
-  height: 35px;
-}
-
 @media (max-width:500px) {
   .commentWrapper {
     width: 90%;

@@ -2,14 +2,14 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import PersonIcon from "@mui/icons-material/Person";
 import { useDispatch } from "react-redux";
 
-import { deleteComment } from "../../../store/actions";
+import { deleteComment } from "../../../store/reducers/commentsReducer";
 import styles from "./Comment.module.css";
 
 export const Comment = ({ username, comment, id }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => {
-    dispatch(deleteComment(id));
+    dispatch(deleteComment({ id }));
   };
 
   return (
@@ -21,11 +21,9 @@ export const Comment = ({ username, comment, id }) => {
         <div className={styles.username}>{username}</div>
         <div className={styles.comment}>{comment}</div>
       </div>
-      <DeleteIcon
-        color="error"
-        onClick={handleDelete}
-        className={styles.deleteBtn}
-      />
+      <button onClick={handleDelete}>
+        <DeleteIcon color="error" className={styles.deleteBtn} />
+      </button>
     </div>
   );
 };

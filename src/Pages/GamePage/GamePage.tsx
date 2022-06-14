@@ -6,7 +6,10 @@ import { RingLoader } from "react-spinners";
 
 import { CommentsList } from "../../components/CommentsList/CommentsList";
 import { unavailable } from "../../config/config";
-import { removeGameFromFavorite, setGameToFavorite } from "../../store/actions";
+import {
+  addToFavorite,
+  removeFromFavorite,
+} from "../../store/reducers/favoriteReducer";
 import { isGameInFavoritesSelector } from "../../store/selectors";
 import { GameApiResponse } from "../../types";
 import styles from "./GamePage.module.css";
@@ -24,8 +27,8 @@ export const GamePage = () => {
     [gameData.data]
   ) as GameApiResponse;
 
-  const gameFavorite = useSelector((state) =>
-    data ? isGameInFavoritesSelector(state, data.id) : false
+  const gameFavorite = useSelector((state): boolean =>
+    isGameInFavoritesSelector(state, data.id)
   );
 
   const dispatch = useDispatch();
@@ -36,10 +39,10 @@ export const GamePage = () => {
 
   const dispatchFavoriteGames = () => {
     if (gameFavorite) {
-      dispatch(removeGameFromFavorite(data.id));
+      dispatch(removeFromFavorite(data.id));
     } else {
       dispatch(
-        setGameToFavorite({
+        addToFavorite({
           id: data.id,
           title: data.title,
           thumbnail: data.thumbnail,
@@ -64,13 +67,14 @@ export const GamePage = () => {
               alt={data.title}
               className={styles.gamePoster}
             />
-            {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events,jsx-a11y/no-noninteractive-element-interactions */}
-            <img
-              src={gameFavorite ? IconFavoriteFill : IconFavorite}
-              onClick={dispatchFavoriteGames}
-              alt="Add to Favorite"
-              className={styles.favorite}
-            />
+            <button onClick={dispatchFavoriteGames}>
+              <img
+                src={gameFavorite ? IconFavoriteFill : IconFavorite}
+                alt="Add to Favorite"
+                className={styles.favorite}
+              />
+            </button>
+
             <div className={styles.gameTextInfo}>
               <span>
                 <b>Developer: </b>

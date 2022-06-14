@@ -1,18 +1,15 @@
-import { applyMiddleware, createStore } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import thunk from "redux-thunk";
+import { configureStore } from "@reduxjs/toolkit";
 
 import { setLocalStorage } from "../utils/localStorage";
 import rootReducer from "./reducers";
 
-const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(thunk))
-);
+const store = configureStore({
+  reducer: rootReducer,
+});
 
 store.subscribe(() => {
-  setLocalStorage("store", store.getState().favoriteReducer);
-  setLocalStorage("storeComment", store.getState().commentsReducer);
+  setLocalStorage("store", store.getState().favoriteSlice);
+  setLocalStorage("storeComment", store.getState().commentSlice);
 });
 
 export default store;

@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 
-import { commentsReducer } from "./commentsReducer";
-import { favoriteReducer } from "./favoriteReducer";
+import commentSlice from "./commentsReducer";
+import favoriteSlice from "./favoriteReducer";
 
 export default combineReducers({
-  favoriteReducer,
-  commentsReducer,
+  favoriteSlice,
+  commentSlice,
 });

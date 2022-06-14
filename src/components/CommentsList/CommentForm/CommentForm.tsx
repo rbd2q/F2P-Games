@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
-import { addComments } from "../../../store/actions";
+import { addComment } from "../../../store/reducers/commentsReducer";
 import styles from "./CommentForm.module.css";
 
 // TODO
@@ -22,7 +22,7 @@ export const CommentForm = (props) => {
 
   const dispatchFavoriteGames = () => {
     dispatch(
-      addComments({
+      addComment({
         username,
         comment: commentText,
         gameID: id,

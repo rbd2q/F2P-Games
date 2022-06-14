@@ -8,8 +8,6 @@ import styles from "./CommentsList.module.css";
 
 // TODO
 export const CommentsList = ({ id }) => {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
   const comments: CommentType[] = useSelector((state) =>
     commentForGame(state, id)
   );
@@ -18,14 +16,16 @@ export const CommentsList = ({ id }) => {
     <div className={styles.commentsWrapper}>
       <h2 className={styles.commentsTitle}>Comments</h2>
       <CommentForm id={id} />
-      {comments.map((comment) => (
-        <Comment
-          key={comment.id}
-          username={comment.username}
-          comment={comment.comment}
-          id={comment.id}
-        />
-      ))}
+      {comments.length
+        ? comments.map((comment) => (
+            <Comment
+              key={comment.id}
+              username={comment.username}
+              comment={comment.comment}
+              id={comment.id}
+            />
+          ))
+        : null}
     </div>
   );
 };
