@@ -5,9 +5,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 
 import { addComment } from "../../../store/reducers/commentsReducer";
-import styles from "./CommentForm.module.css";
 
-// TODO
 export const CommentForm = (props) => {
   const { id } = props;
 
@@ -23,7 +21,7 @@ export const CommentForm = (props) => {
   const dispatchFavoriteGames = () => {
     dispatch(
       addComment({
-        username,
+        username: username || "Anonymus",
         comment: commentText,
         gameID: id,
       })
@@ -42,9 +40,9 @@ export const CommentForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit(dispatchFavoriteGames)}>
-      <div className={styles.commentForm}>
+      <div className="flex flex-col my-8">
         <TextField
-          className={styles.addUsernameInput}
+          className="!w-72 sm:!w-96"
           id="filled-multiline-flexible"
           label="Username"
           multiline
@@ -55,9 +53,10 @@ export const CommentForm = (props) => {
           variant="filled"
         />
         <TextField
-          className={styles.addCommentInput}
+          className="!w-72 sm:!w-96 !mt-2"
           id="filled-multiline-static"
           label="Comment"
+          required
           multiline
           rows={4}
           value={commentText}
@@ -67,7 +66,7 @@ export const CommentForm = (props) => {
         />
         <Button
           type="submit"
-          className={styles.sendCommentBtn}
+          className="!mt-2"
           variant="contained"
           disabled={!commentText || isSubmitting}
         >
