@@ -22,6 +22,7 @@ export const CommentsList = ({ id }) => {
               key={comment.id}
               username={comment.username}
               comment={comment.comment}
+              creationDate={comment.creationDate}
               id={comment.id}
             />
           ))

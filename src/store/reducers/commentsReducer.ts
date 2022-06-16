@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import dayjs from "dayjs";
 
 import { getLocalStorage } from "../../utils/localStorage";
 
@@ -9,9 +10,14 @@ const commentSlice = createSlice({
   initialState,
   reducers: {
     addComment(state, action) {
+      const creationDate = dayjs().format("YYYY-MM-DD HH:mm");
       const newCommentID =
         state.length > 0 ? state[state.length - 1].id + 1 : 1;
-      state.push({ ...action.payload, id: newCommentID });
+      state.push({
+        ...action.payload,
+        creationDate,
+        id: newCommentID,
+      });
     },
     deleteComment(state, action) {
       state.splice(

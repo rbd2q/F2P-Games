@@ -46,6 +46,7 @@ type MinimumSystemRequirements = {
 export type CommentType = {
   id: number;
   username: string;
+  creationDate: string;
   comment: string;
 };
 
