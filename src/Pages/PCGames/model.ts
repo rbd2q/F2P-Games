@@ -7,4 +7,6 @@ export const useFetchPCGames = (
   genre: string,
   sort: string
 ): UseQueryResult<GamesApiResponse[]> =>
-  useQuery(["PC Games", `genre:${genre}`], () => PCGamesApi(genre, sort));
+  useQuery(["PC Games", `genre:${genre} sort:${sort}`], () =>
+    PCGamesApi(genre, sort)
+  );

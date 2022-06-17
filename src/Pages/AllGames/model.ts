@@ -7,4 +7,6 @@ export const useFetchAllGames = (
   genre?: string,
   sort?: string
 ): UseQueryResult<GamesApiResponse[]> =>
-  useQuery(["all games", `genre:${genre}`], () => allGamesApi(genre, sort));
+  useQuery(["all games", `genre:${genre} sort:${sort}`], () =>
+    allGamesApi(genre, sort)
+  );

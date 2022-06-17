@@ -6,8 +6,8 @@ import { GenresMenu } from "../../components/GenresMenu/GenresMenu";
 import { BasicPagination } from "../../components/Pagination/Pagination/Pagination";
 import { SingleContent } from "../../components/SingleContent/SingleContent";
 import { SortingMenu } from "../../components/SortingMenu/SortingMenu";
-import { useFetchAllGames } from "../AllGames/model";
 import styles from "./BrowserGames.module.css";
+import { useFetchBrowserGame } from "./model";
 
 export const BrowserGames = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -15,7 +15,7 @@ export const BrowserGames = () => {
   const [genre, setGenre] = useState("");
   const [sort, setSort] = useState("");
 
-  const gamesData = useFetchAllGames(genre, sort);
+  const gamesData = useFetchBrowserGame(genre, sort);
   const data = useMemo(() => gamesData.data || [], [gamesData.data]);
 
   const indexOfLastGame = currentPage * gamesPerPage;
