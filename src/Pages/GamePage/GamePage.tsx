@@ -75,61 +75,67 @@ export const GamePage = () => {
               />
             </button>
 
-            <div className={styles.gameTextInfo}>
-              <span>
-                <b>Developer: </b>
+            <div className="flex flex-col">
+              <div className="mb-2">
+                <span className="font-bold">Developer: </span>
                 {data.developer}
-              </span>
-              <span>
-                <b>Genre: </b>
+              </div>
+              <div className="mb-2">
+                <span className="font-bold">Genre: </span>
                 {data.genre}
-              </span>
-              <span>
-                <b>Release Date: </b>
+              </div>
+              <div className="mb-2">
+                <span className="font-bold">Release Date: </span>
                 {data.release_date}
-              </span>
-              <span>
-                <b>Platform: </b>
+              </div>
+              <div className="mb-2">
+                <span className="font-bold">Platform: </span>
                 {data.platform}
-              </span>
-              <h4>Minimum System Requirements</h4>
-              <span>
-                <b>OS: </b>
-                {data.minimum_system_requirements
-                  ? data.minimum_system_requirements.os
-                  : "Web Game"}
-              </span>
-              <span>
-                <b>Processor: </b>
-                {data.minimum_system_requirements
-                  ? data.minimum_system_requirements.processor
-                  : "Web Game"}
-              </span>
-              <span>
-                <b>Graphics: </b>
-                {data.minimum_system_requirements
-                  ? data.minimum_system_requirements.graphics
-                  : "Web Game"}
-              </span>
-              <span>
-                <b>Storage: </b>
-                {data.minimum_system_requirements
-                  ? data.minimum_system_requirements.storage
-                  : "Web Game"}
-              </span>
-              <span>
-                <b>Memory: </b>
-                {data.minimum_system_requirements
-                  ? data.minimum_system_requirements.memory
-                  : "Web Game"}
-              </span>
+              </div>
+              {data.platform === "Windows" && (
+                <>
+                  <h4 className="font-bold my-4">
+                    Minimum System Requirements
+                  </h4>
+                  <div className="mb-2">
+                    <span className="font-bold">OS: </span>
+                    {data.minimum_system_requirements
+                      ? data.minimum_system_requirements.os
+                      : ""}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-bold">Processor: </span>
+                    {data.minimum_system_requirements
+                      ? data.minimum_system_requirements.processor
+                      : ""}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-bold">Graphics: </span>
+                    {data.minimum_system_requirements
+                      ? data.minimum_system_requirements.graphics
+                      : ""}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-bold">Storage: </span>
+                    {data.minimum_system_requirements
+                      ? data.minimum_system_requirements.storage
+                      : ""}
+                  </div>
+                  <div className="mb-2">
+                    <span className="font-bold">Memory: </span>
+                    {data.minimum_system_requirements
+                      ? data.minimum_system_requirements.memory
+                      : ""}
+                  </div>
+                </>
+              )}
             </div>
           </div>
-          <div className={styles.gameDescription}>
-            <h2>Game description</h2>
+          <div className="flex flex-col items-center">
+            <h2 className="font-bold mt-10 mb-4">Game description</h2>
             <p>{data.description}</p>
           </div>
-          <h4>Screenshots</h4>
+          <h4 className="font-bold mt-10 mb-4">Screenshots</h4>
           <div className={styles.screenshotsList}>
             {data.screenshots.map((s) => (
               <ScreenshotModal s={s} key={s.id} />

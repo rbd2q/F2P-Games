@@ -10,7 +10,7 @@ const commentSlice = createSlice({
   initialState,
   reducers: {
     addComment(state, action) {
-      const creationDate = dayjs().format("YYYY-MM-DD HH:mm");
+      const creationDate = dayjs().format("DD MMMM YYYY HH:mm");
       const newCommentID =
         state.length > 0 ? state[state.length - 1].id + 1 : 1;
       state.push({
