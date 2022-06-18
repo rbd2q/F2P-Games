@@ -48,9 +48,9 @@ export const SingleContent = ({
         src={thumbnail || unavailable}
         alt={title}
       />
-      <b className={styles.title}>{title}</b>
-      <div className={styles.gameInfo}>
-        <span>{genre}</span>
+      <div className="w-full font-bold text-center py-2">{title}</div>
+      <div className="flex justify-between flex-wrap px-2 text-xs md:text-sm">
+        <span className="mr-2">{genre}</span>
         <span>{release_date}</span>
       </div>
     </div>

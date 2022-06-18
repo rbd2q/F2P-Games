@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import { useMemo } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -33,10 +32,6 @@ export const GamePage = () => {
 
   const dispatch = useDispatch();
 
-  const override = css`
-    margin-top: 100px;
-  `;
-
   const dispatchFavoriteGames = () => {
     if (gameFavorite) {
       dispatch(removeFromFavorite(data.id));
@@ -57,7 +52,9 @@ export const GamePage = () => {
   return (
     <div className={styles.pageWrapper}>
       {gameData.isLoading ? (
-        <RingLoader size={200} speedMultiplier={3} css={override} />
+        <div className="my-44 flex items-center justify-center">
+          <RingLoader size={200} speedMultiplier={3} />
+        </div>
       ) : (
         <div className={styles.gameWrapper}>
           <span className={styles.gameTitle}>{data.title}</span>

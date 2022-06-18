@@ -1,13 +1,12 @@
 import "./index.css";
 
-import { Container } from "@mui/material";
 import { useRef } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
 import styles from "./App.module.css";
-import { SimpleBottomNavigation } from "./components/BottomNav/BottomNav";
 import { Header } from "./components/Header/Header";
+import { MenuNavigation } from "./components/MenuNavigation";
 import { AllGames } from "./Pages/AllGames/AllGames";
 import { BrowserGames } from "./Pages/BrowserGames/BrowserGames";
 import { Favorite } from "./Pages/Favorite/Favorite";
@@ -33,7 +32,8 @@ export const App = () => {
       <QueryClientProvider client={queryClientRef.current}>
         <Header />
         <div className={styles.app}>
-          <Container>
+          <MenuNavigation />
+          <div className="w-full md:ml-60 lg:ml-80">
             <Switch>
               <Route path="/AllGames" component={AllGames} exact />
               <Route path="/Popular" component={Popular} />
@@ -43,9 +43,8 @@ export const App = () => {
               <Route path="/game/detail/:id" component={GamePage} />
               <Route path="/notFound" component={NotFound} />
             </Switch>
-          </Container>
+          </div>
         </div>
-        <SimpleBottomNavigation />
       </QueryClientProvider>
     </BrowserRouter>
   );

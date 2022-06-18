@@ -1,4 +1,3 @@
-import { css } from "@emotion/react";
 import { useMemo, useState } from "react";
 import { RingLoader } from "react-spinners";
 
@@ -15,10 +14,6 @@ export const PCGames = () => {
   const [genre, setGenre] = useState("");
   const [sort, setSort] = useState("");
 
-  const override = css`
-    margin-top: 100px;
-  `;
-
   const gamesData = useFetchPCGames(genre, sort);
   const data = useMemo(() => gamesData.data || [], [gamesData.data]);
 
@@ -27,15 +22,16 @@ export const PCGames = () => {
   const currentGames = data.slice(indexOfFirstGame, indexOfLastGame);
 
   return (
-    <div>
-      <span className={styles.pageTitle}>PC Games</span>
+    <>
       <div className={styles.navBar}>
         <GenresMenu setGenre={setGenre} genre={genre} />
         <SortingMenu setSort={setSort} sort={sort} />
       </div>
       <div className={styles.gamesWrapper}>
         {gamesData.isLoading ? (
-          <RingLoader size={200} speedMultiplier={3} css={override} />
+          <div className="my-44 flex items-center justify-center">
+            <RingLoader size={200} speedMultiplier={3} />
+          </div>
         ) : (
           currentGames.map((c) => (
             <SingleContent
@@ -58,6 +54,6 @@ export const PCGames = () => {
           currentPage={currentPage}
         />
       </div>
-    </div>
+    </>
   );
 };

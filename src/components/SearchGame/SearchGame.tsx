@@ -7,7 +7,6 @@ import { useHistory } from "react-router-dom";
 import { useFetchAllGames } from "../../Pages/AllGames/model";
 import styles from "./SearchGame.module.css";
 
-// TODO
 export const SearchGame = () => {
   const history = useHistory();
   const gamesData = useFetchAllGames();

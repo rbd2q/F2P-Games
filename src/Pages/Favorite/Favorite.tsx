@@ -9,25 +9,22 @@ export const Favorite = () => {
   const games = useSelector((state: any) => state.favoriteSlice);
 
   return (
-    <div>
-      <span className={styles.pageTitle}>Favorite</span>
-      <div className={styles.gamesWrapper}>
-        {games.length === 0 ? (
-          <EmptyFavoriteSection />
-        ) : (
-          games?.map((g) => (
-            <SingleContent
-              key={g.id}
-              id={g.id}
-              title={g.title}
-              platform={g.platform}
-              genre={g.genre}
-              thumbnail={g.thumbnail}
-              release_date={g.release_date}
-            />
-          ))
-        )}
-      </div>
+    <div className={styles.gamesWrapper}>
+      {games.length === 0 ? (
+        <EmptyFavoriteSection />
+      ) : (
+        games?.map((g) => (
+          <SingleContent
+            key={g.id}
+            id={g.id}
+            title={g.title}
+            platform={g.platform}
+            genre={g.genre}
+            thumbnail={g.thumbnail}
+            release_date={g.release_date}
+          />
+        ))
+      )}
     </div>
   );
 };
