@@ -14,17 +14,11 @@
   background-color: #D7DAE8!important;
 }
 
-@media (max-width:800px) {
-  .inputWrapper {
-    right: 30px;
-    width: 150px!important;
-  }
-}
 @media (max-width:600px) {
   .inputWrapper {
     top: 15px;
     right: 10px;
-    width: 90px!important;
+    width: 120px!important;
     height: 20px;
   }
   .inputWrapper label {
