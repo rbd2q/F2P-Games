@@ -18,7 +18,7 @@ export const Comment = ({ username, comment, creationDate, id }) => {
   };
 
   return (
-    <div className="flex justify-between items-start mb-4 w-4/5 bg-[#ebecf6] rounded-lg p-5 pb-12 relative">
+    <div className="flex justify-between items-start mb-4 w-full sm:w-4/5 bg-[#ebecf6] rounded-lg p-5 pb-12 relative">
       <div className="flex items-start">
         <div className="mr-6 p-1">
           <img className="rounded-full" src={avatarScr} alt="avatar" />

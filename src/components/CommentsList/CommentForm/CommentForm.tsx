@@ -39,10 +39,13 @@ export const CommentForm = (props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(dispatchFavoriteGames)}>
+    <form
+      onSubmit={handleSubmit(dispatchFavoriteGames)}
+      className="w-full sm:flex sm:justify-center"
+    >
       <div className="flex flex-col my-8">
         <TextField
-          className="!w-72 sm:!w-96"
+          className="!w-full sm:!w-96"
           id="filled-multiline-flexible"
           label="Username"
           multiline
@@ -53,7 +56,7 @@ export const CommentForm = (props) => {
           variant="filled"
         />
         <TextField
-          className="!w-72 sm:!w-96 !mt-2"
+          className="!w-full sm:!w-96 !mt-2"
           id="filled-multiline-static"
           label="Comment"
           required

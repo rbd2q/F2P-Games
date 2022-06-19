@@ -12,12 +12,7 @@ const style: SxProps = {
   top: "45%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 900,
-  height: 500,
   padding: 0,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
   p: 4,
 };
 
@@ -27,7 +22,7 @@ export const ScreenshotModal = ({ s }) => {
   const handleClose = () => setOpen(false);
 
   return (
-    <div>
+    <>
       <Button className={styles.screenshotButton} onClick={handleOpen}>
         <img
           key={s.id}
@@ -53,6 +48,6 @@ export const ScreenshotModal = ({ s }) => {
           </Typography>
         </Box>
       </Modal>
-    </div>
+    </>
   );
 };

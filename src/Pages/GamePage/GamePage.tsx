@@ -56,14 +56,9 @@ export const GamePage = () => {
           <RingLoader size={200} speedMultiplier={3} />
         </div>
       ) : (
-        <div className={styles.gameWrapper}>
-          <span className={styles.gameTitle}>{data.title}</span>
-          <div className={styles.gameMainInfo}>
-            <img
-              src={data.thumbnail ? data.thumbnail : unavailable}
-              alt={data.title}
-              className={styles.gamePoster}
-            />
+        <div className="flex flex-col items-center min-h-screen px-3 md:px-5">
+          <div className="mb-8 font-semibold text-2xl md:text-4xl flex justify-center">
+            {data.title}
             <button onClick={dispatchFavoriteGames}>
               <img
                 src={gameFavorite ? IconFavoriteFill : IconFavorite}
@@ -71,6 +66,14 @@ export const GamePage = () => {
                 className={styles.favorite}
               />
             </button>
+          </div>
+
+          <div className={styles.gameMainInfo}>
+            <img
+              src={data.thumbnail ? data.thumbnail : unavailable}
+              alt={data.title}
+              className={styles.gamePoster}
+            />
 
             <div className="flex flex-col">
               <div className="mb-2">
@@ -132,14 +135,19 @@ export const GamePage = () => {
             <h2 className="font-bold mt-10 mb-4">Game description</h2>
             <p>{data.description}</p>
           </div>
-          <h4 className="font-bold mt-10 mb-4">Screenshots</h4>
-          <div className={styles.screenshotsList}>
-            {data.screenshots.map((s) => (
-              <ScreenshotModal s={s} key={s.id} />
-            ))}
-          </div>
+          {data.screenshots.length ? (
+            <>
+              <h4 className="font-bold mt-10 mb-4">Screenshots</h4>
+              <div className={styles.screenshotsList}>
+                {data.screenshots.map((s) => (
+                  <ScreenshotModal s={s} key={s.id} />
+                ))}
+              </div>
+            </>
+          ) : null}
+
           <form action={data.game_url}>
-            <button className="bttn-gradient bttn-lg bttn-success">
+            <button className="bttn-gradient bttn-lg bttn-success mt-5">
               DOWNLOAD
             </button>
           </form>
