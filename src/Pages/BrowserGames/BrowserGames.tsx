@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { RingLoader } from "react-spinners";
 
+import { GamePageSkeleton } from "../../components/game-page-skeleton";
 import { GenresMenu } from "../../components/GenresMenu/GenresMenu";
 import { BasicPagination } from "../../components/Pagination/Pagination/Pagination";
 import { SingleContent } from "../../components/SingleContent/SingleContent";
@@ -29,8 +29,8 @@ export const BrowserGames = () => {
       </div>
       <div className={styles.gamesWrapper}>
         {gamesData.isLoading ? (
-          <div className="my-44 flex items-center justify-center">
-            <RingLoader size={200} speedMultiplier={3} />
+          <div className="mt-4">
+            <GamePageSkeleton />
           </div>
         ) : (
           currentGames.map((c) => (

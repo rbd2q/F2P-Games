@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
-import { RingLoader } from "react-spinners";
 
+import { GamePageSkeleton } from "../../components/game-page-skeleton";
 import { GenresMenu } from "../../components/GenresMenu/GenresMenu";
 import { SingleContent } from "../../components/SingleContent/SingleContent";
 import { useFetchPopularGames } from "./model";
@@ -19,8 +19,8 @@ export const Popular = () => {
       </div>
       <div className={styles.gamesWrapper}>
         {gamesData.isLoading ? (
-          <div className="my-44 flex items-center justify-center">
-            <RingLoader size={200} speedMultiplier={3} />
+          <div className="mt-4">
+            <GamePageSkeleton />
           </div>
         ) : (
           data.map((c, index) =>

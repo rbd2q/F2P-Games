@@ -30,10 +30,10 @@ export const MenuNavigation = () => {
   }, [value, history]);
 
   return (
-    <div className="hidden w-60 flex-col bg-[#CBCDDA] fixed top-0 bottom-0 md:flex">
+    <div className="hidden w-60 flex-col bg-[#EDEEF0] fixed top-0 bottom-0 md:flex">
       <button
         className={`p-5 mt-16 border-b border-black border-solid text-lg font-semibold flex justify-center items-center ${
-          value === 0 && "bg-[#919299]"
+          value === 0 && "bg-[#D7DAE8]"
         }`}
         onClick={() => setValue(0)}
       >
@@ -42,7 +42,7 @@ export const MenuNavigation = () => {
       </button>
       <button
         className={`p-5 border-b border-black border-solid text-lg font-semibold flex justify-center items-center ${
-          value === 1 && "bg-[#919299]"
+          value === 1 && "bg-[#D7DAE8]"
         }`}
         onClick={() => setValue(1)}
       >
@@ -51,7 +51,7 @@ export const MenuNavigation = () => {
       </button>
       <button
         className={`p-5 border-b border-black border-solid text-lg font-semibold flex justify-center items-center ${
-          value === 2 && "bg-[#919299]"
+          value === 2 && "bg-[#D7DAE8]"
         }`}
         value={2}
         onClick={() => setValue(2)}
@@ -61,7 +61,7 @@ export const MenuNavigation = () => {
       </button>
       <button
         className={`p-5 border-b border-black border-solid text-lg font-semibold flex justify-center items-center ${
-          value === 3 && "bg-[#919299]"
+          value === 3 && "bg-[#D7DAE8]"
         }`}
         value={3}
         onClick={() => setValue(3)}
@@ -71,7 +71,7 @@ export const MenuNavigation = () => {
       </button>
       <button
         className={`p-5 border-b border-black border-solid text-lg font-semibold flex justify-center items-center ${
-          value === 4 && "bg-[#919299]"
+          value === 4 && "bg-[#D7DAE8]"
         }`}
         value={4}
         onClick={() => setValue(4)}
