@@ -34,15 +34,17 @@ export const App = () => {
         <div className={styles.app}>
           <MenuNavigation />
           <div className="w-full md:ml-60 lg:ml-80">
-            <Switch>
-              <Route path="/AllGames" component={AllGames} exact />
-              <Route path="/Popular" component={Popular} />
-              <Route path="/PCGames" component={PCGames} />
-              <Route path="/BrowserGames" component={BrowserGames} />
-              <Route path="/Favorite" component={Favorite} />
-              <Route path="/game/detail/:id" component={GamePage} />
-              <Route path="/notFound" component={NotFound} />
-            </Switch>
+            <div className="mx-auto max-w-7xl">
+              <Switch>
+                <Route path="/AllGames" component={AllGames} exact />
+                <Route path="/Popular" component={Popular} />
+                <Route path="/PCGames" component={PCGames} />
+                <Route path="/BrowserGames" component={BrowserGames} />
+                <Route path="/Favorite" component={Favorite} />
+                <Route path="/game/detail/:id" component={GamePage} />
+                <Route path="/notFound" component={NotFound} />
+              </Switch>
+            </div>
           </div>
         </div>
       </QueryClientProvider>
